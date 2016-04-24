@@ -7,7 +7,17 @@ defmodule Elmxir.Mixfile do
      elixir: "~> 1.1",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     description: "Helper functions for working with Elm + Elixir",
+     package: package,
      deps: deps]
+  end
+
+  def package do
+    [
+      maintainers: ["Noah Hall", "NoRedInk"],
+      licenses: ["BSD3"],
+      links: %{"GitHub" => "https://github.com/NoRedInk/elmxir"}
+    ]
   end
 
   # Configuration for the OTP application
@@ -27,6 +37,7 @@ defmodule Elmxir.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:earmark, ">= 0.0.0", only: :dev},
+    {:ex_doc, "~> 0.10", only: :dev}]
   end
 end
