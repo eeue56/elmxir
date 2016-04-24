@@ -11,7 +11,7 @@ defmodule Elmxir do
   ## Examples
 
     iex> Elmxir.gather_args(nil)
-    nil
+    []
 
     iex> Elmxir.gather_args(%{"_0" => 1})
     [1]
@@ -38,6 +38,14 @@ defmodule Elmxir do
   Get the action name of an Elm object
 
   Defaults to nil
+
+  ## Examples
+
+    iex> Elmxir.get_action_name(%{})
+    nil
+
+    iex> Elmxir.get_action_name(%{ "ctor" => "Name" })
+    "Name"
   """
   @spec get_action_name(map) :: string
   def get_action_name(action) do
